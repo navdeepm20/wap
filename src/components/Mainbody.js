@@ -8,6 +8,7 @@ const MainBody = () =>
 	return(
 		<Container maxWidth="xl">
 			{/* <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} /> */}
+			
 			<Grid container spacing={1} sx={{justifyContent: 'center'}}>
 				<Grid item xs={8}>
 					<SearchBox/>
@@ -18,4 +19,4 @@ const MainBody = () =>
 	)
 }
 
-export default MainBody
+export default MainBody																			
