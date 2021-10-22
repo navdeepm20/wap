@@ -4,12 +4,14 @@ import { useState } from 'react';
 
 export const GetDataContext = createContext();
 
-function GetData() {
-	
+function GetData(props) {
+	const getFormData = (city) => {
+		console.log(city)
+	}
 	return (
-		<div>
-			
-		</div>
+		<GetDataContext.Provider value={{getFormData}}>
+			{props.children}
+		</GetDataContext.Provider>
 	)
 }
 
