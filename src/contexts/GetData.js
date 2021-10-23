@@ -13,6 +13,7 @@ function GetData(props) {
 		const res = await FetchData(city)
 		
 		const res_json = await res.json()
+		console.log(res_json)
 		if(res.status==200)
 		{
 			
@@ -24,7 +25,7 @@ function GetData(props) {
 		
 	}
 	return (
-		<GetDataContext.Provider value={{getFormData,wdata}}>
+		<GetDataContext.Provider value={{getFormData,wdata,setWdata}}>
 			{props.children}
 		</GetDataContext.Provider>
 	)
