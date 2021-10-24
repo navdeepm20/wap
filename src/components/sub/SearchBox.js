@@ -34,7 +34,7 @@ export default function SearchBox(props) {
 			
 				setTimeout(()=>{
 					GSContext.setShowProg(false)
-					props.setAlertMsg('Success')
+					props.setAlertMsg('Success. Weather info found.')
 					props.setAlertType("success")
 					props.setAlert(true)
 					Dcontext.setWdata(res_json)
@@ -44,8 +44,26 @@ export default function SearchBox(props) {
 				
 				
 			}
-			else
+			else if(response.status==400)
 			{
+				setTimeout(()=>{
+					GSContext.setShowProg(false)
+					props.setAlertMsg('Bad Request. Make sure you have typed the right city name')
+					props.setAlertType("error")
+					props.setAlert(true)
+				},2000)
+				
+				
+			}
+			else if(response.status==404)
+			{
+				setTimeout(()=>{
+					GSContext.setShowProg(false)
+					props.setAlertMsg('Not Found. No city found with this name')
+					props.setAlertType("error")
+					props.setAlert(true)
+				},2000)
+				
 				
 			}
 			

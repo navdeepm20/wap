@@ -35,3 +35,12 @@ code {
   padding: 0;
   box-sizing: border-box;
 }
+.MuiDrawer-paper {
+  width: 200px !important;
+  }
+  
+  @media (max-width: 1200px) {
+      .MuiDrawer-paper {
+   width: 200px !important;
+   }
+  }
