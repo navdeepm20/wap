@@ -20,13 +20,12 @@ const MainBody = () =>
 		<Container maxWidth="xl">
 			
 			{
-				
-				showAlert ? <Alert sx={{m: 2}} onClose={() => {setShowAlert(false)}} severity={alertType}>{alertMsg}</Alert> : ""
+				showAlert ? <Alert sx={{m: 2,position:"absolute", top: '4rem',width: "80vw"}} onClose={() => {setShowAlert(false)}} severity={alertType}>{alertMsg}</Alert> : ""
 			}
 		
 			
 			<Grid container spacing={1} sx={{justifyContent: 'center'}}>
-				<Grid item xs={8}>
+				<Grid item xs={10} sm={8} >
 					<GetData>
 						<GlobalState>
 							<SearchBox alert={showAlert} setAlert={setShowAlert} setAlertMsg={setAlertMsg} setAlertType={setAlertType}/>

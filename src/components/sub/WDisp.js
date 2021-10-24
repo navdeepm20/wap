@@ -4,13 +4,11 @@ import Bg from '../../imgs/wheather/bg.jpg'
 import Wheather from './Wheather';
 function WDisp() {
 	return (
-		<div className="wheather-box-container" style={{width: '100%',height: '200px',marginTop: '2rem'}}>
+		<div className="wheather-box-container" style={{width: '100%',height: '200px',marginTop:'1rem'}}>
 				
 					<Box sx={{width: '100%',height: 350,background: `url(${Bg}) no-repeat center/cover`, display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
 						<Wheather/>
-					</Box>
-
-					
+					</Box>	
 		</div>
 	)
 }

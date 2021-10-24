@@ -1,10 +1,11 @@
 import React from 'react'
 import Paper from '@mui/material/Paper'
 import search from '../../imgs/search/search.svg'
-import Input from '@mui/material/Input';
+import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
+
+import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Grid';
 import {useContext}from 'react'
 import { GetDataContext } from '../../contexts/GetData'
@@ -27,7 +28,7 @@ export default function SearchBox(props) {
 		
 			GSContext.setShowProg(true)
 			const response = await Dcontext.getFormData(value)
-			
+			const res_json = await response.json()
 			if(response.status==200)
 			{
 			
@@ -35,9 +36,9 @@ export default function SearchBox(props) {
 					GSContext.setShowProg(false)
 					props.setAlertMsg('Success')
 					props.setAlertType("success")
-				
 					props.setAlert(true)
-				},1000)
+					Dcontext.setWdata(res_json)
+				},2000)
 				
 				
 				
@@ -52,27 +53,37 @@ export default function SearchBox(props) {
 	}
 	return (
 		<>
-			<Grid container spacing={1} sx={{justifyContent: 'center',mt: 5}}>
-				<Grid item xs={8}>
+			<Grid container spacing={4} sx={{justifyContent: 'center',mt: 5}}>
+				<Grid item xs={12} md={12}>
 					<div className="search-img-container">
 						<img src={search} alt="search-wheather" style={{margin: 'auto',width: '200px',display: 'block'}} />
 					
 					</div>
 				</Grid>
-				<Grid item xs={10}>
+				<Grid item xs={12} sm={12}>
 					<div className="search-input-container">
-						<TextField fullWidth sx={{mt: 5}} label="Enter Your City" value={value} onChange={(e)=>{setVal(e.target.value)}}/>
-						<div className="btn-container" style={{display: 'block',width: '173px',margin: 'auto'}} >
-							<Button variant='contained' endIcon={<SendIcon/>} sx={{mt: 2}} size="medium" onClick={()=>{
+						<TextField fullWidth sx={{display: 'inline-block'}} label="Enter Your City to Get Weather" value={value} onChange={(e)=>{setVal(e.target.value)}} InputProps={{
+						endAdornment: (
+							<IconButton>
+							<SearchIcon onClick={()=>{
 								submitForm()
 								
-								}}>Get Wheather</Button>
+								}}/>
+							</IconButton>
+                  ),
+                }}/>
+						
+						
+					
+					</div>
+				</Grid>
+				<Grid item xs={2} sm={2}>
+					<div className="btn-container" >
+							
+							
 							{GSContext.showProg ? <LinearProgress /> : ""}
 							
 						
-						</div>
-						
-					
 					</div>
 				</Grid>
 				

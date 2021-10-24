@@ -16,8 +16,8 @@ function Wheather() {
 		return `${day} ${date} ${month} ${year}`
 	  }
 	return (
-		<div className="wheater-box wbox" style={{marginTop: "1rem"}}>
-			<Typography variant="h4" component="div"> 
+		<div className="wheater-box wbox" style={{padding: '1rem'}}>
+			<Typography variant="h5" component="div"> 
 				{wdata.wdata ? `${wdata.wdata.name}, ${wdata.wdata.sys.country}`:""}
 				
 			</Typography>
@@ -27,9 +27,10 @@ function Wheather() {
 			</Typography>
 			<Typography variant="h3" gutterBottom component="div" sx={{mt: 5}}> 
 			
-			{wdata.wdata ? Math.round(wdata.wdata.main.temp):""} <span>&#8451;</span>
+			{wdata.wdata ? Math.round(wdata.wdata.main.temp)  :""} 
+			{wdata.wdata ? <span>&#8451;</span>:""}
 			</Typography>
-			<Typography variant="h3" gutterBottom component="div" sx={{mt: 5}}> 
+			<Typography variant="h4" gutterBottom component="div" sx={{mt: 5}}> 
 			
 			{wdata.wdata ? wdata.wdata.weather[0].main:""}	
 			</Typography>

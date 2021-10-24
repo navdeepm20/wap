@@ -12,14 +12,9 @@ function GetData(props) {
 	const getFormData = async (city) => {
 		const res = await FetchData(city)
 		
-		const res_json = await res.json()
-		console.log(res_json)
-		if(res.status==200)
-		{
-			
-			setWdata(res_json)
-			return res
-		}
+		
+		
+		
 		return res
 	
 		
