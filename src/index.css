@@ -37,6 +37,10 @@ code {
 }
 .MuiDrawer-paper {
   width: 200px !important;
+  /* height: calc(100% - 64px) !important; */
+  position: absolute;
+  top: 64px;
+  left: 0;
   }
   
   @media (max-width: 1200px) {
